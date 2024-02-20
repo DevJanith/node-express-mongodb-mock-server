@@ -23,6 +23,9 @@ const router = express.Router();
  *         published:
  *           type: string
  *           description: The tutorial published 
+ *         description:
+ *           type: string
+ *           description: The description of your tutorial
  *         createdAt:
  *           type: string
  *           format: date
