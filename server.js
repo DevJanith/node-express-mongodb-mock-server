@@ -11,6 +11,9 @@ import tutorialRoutes from './routes/tutorial.routes.js';
 
 dotenv.config();
 
+const CONNECTION_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.azyqjuo.mongodb.net/?retryWrites=true&w=majority`;
+const PORT = process.env.PORT || 5000;
+
 const app = express();
 
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
@@ -24,7 +27,7 @@ const options = {
         info: {
             title: 'Test Server Express API with Swagger',
             version: '0.1.0',
-            description: `This is a simple CRUD API application made with Express and documented with Swagger. [Swagger Specification](http://localhost:8000/swagger-json)`,
+            description: `This is a simple CRUD API application made with Express and documented with Swagger. [Swagger Specification](http://localhost:${PORT}/swagger-json)`,
             license: {
                 name: 'MIT',
                 url: 'https://spdx.org/licenses/MIT.html',
@@ -37,7 +40,7 @@ const options = {
         },
         servers: [
             {
-                url: 'http://localhost:8000',
+                url: `http://localhost:${PORT}`,
             },
         ],
     },
@@ -60,9 +63,6 @@ app.get('/', (req, res) => {
 app.get('/swagger-json', (req, res) => {
     res.json(specs);
 });
-
-const CONNECTION_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.azyqjuo.mongodb.net/?retryWrites=true&w=majority`;
-const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL)
     .then(() => {
