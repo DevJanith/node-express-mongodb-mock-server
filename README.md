@@ -37,7 +37,7 @@ Welcome to the Node.js Express MongoDB Mock Server! This project provides a mock
 The server connects to MongoDB using the following connection string:
 
 ```javascript
-const CONNECTION_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+const CONNECTION_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}/?retryWrites=true&w=majority`;
 ```
 
 Ensure that you have set up your `.env` file with the correct credentials before running the server.
