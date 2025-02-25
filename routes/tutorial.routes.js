@@ -1,5 +1,11 @@
 import express from "express";
-import { createTutorial, deleteTutorial, getTutorial, getTutorials, updateTutorial } from "../controllers/tutorial.controller.js";
+import {
+  createTutorial,
+  deleteTutorial,
+  getTutorial,
+  getTutorials,
+  updateTutorial,
+} from "../controllers/tutorial.controller.js";
 
 const router = express.Router();
 
@@ -22,7 +28,7 @@ const router = express.Router();
  *           description: The title of your tutorial
  *         published:
  *           type: string
- *           description: The tutorial published 
+ *           description: The tutorial published
  *         description:
  *           type: string
  *           description: The description of your tutorial
@@ -35,10 +41,9 @@ const router = express.Router();
  *           format: date
  *           description: The date the tutorial was updated
  *       example:
- *         _id: d5fE_asz
  *         title: The New Turing Omnibus
  *         description: Tutorial Description
- *         published: Alexander K. Dewdney 
+ *         published: Alexander K. Dewdney
  *         createdAt: 2020-03-10T04:05:06.157Z
  *         updatedAt: 2020-03-10T04:05:06.157Z
  */
@@ -47,7 +52,7 @@ const router = express.Router();
  * @swagger
  * tags:
  *   name: Tutorials
- *   description: The tutorials managing API 
+ *   description: The tutorials managing API
  */
 
 // Get all tutorials
@@ -74,7 +79,7 @@ const router = express.Router();
  *             example:
  *               message: Tutorial not found
  */
-router.get('/', getTutorials);
+router.get("/", getTutorials);
 
 // Create a new tutorial
 /**
@@ -104,7 +109,7 @@ router.get('/', getTutorials);
  *             example:
  *               message: Tutorial already exists
  */
-router.post('/', createTutorial);
+router.post("/", createTutorial);
 
 // Get a tutorial by ID
 /**
@@ -135,7 +140,7 @@ router.post('/', createTutorial);
  *             example:
  *               message: Tutorial not found
  */
-router.get('/:id', getTutorial);
+router.get("/:id", getTutorial);
 
 // Update a tutorial by ID
 /**
@@ -172,7 +177,7 @@ router.get('/:id', getTutorial);
  *             example:
  *               message: Tutorial not found
  */
-router.patch('/:id', updateTutorial);
+router.patch("/:id", updateTutorial);
 
 // Delete a tutorial by ID
 /**
@@ -199,6 +204,6 @@ router.patch('/:id', updateTutorial);
  *             example:
  *               message: Tutorial not found
  */
-router.delete('/:id', deleteTutorial);
+router.delete("/:id", deleteTutorial);
 
 export default router;
